@@ -16,7 +16,7 @@ const app = express();
 app.use(bodyParser.json());  // Parse the JSON sent from Telegram
 
 // Set up your bot's webhook (DO NOT add the token in the URL here)
-bot.setWebHook(`${webhookUrl}`/`${token}`);
+bot.setWebHook(`${webhookUrl}`);
 
 // Route for receiving updates from Telegram (here we use the token to identify the bot)
 app.post(`/webhook/${token}`, (req, res) => {
