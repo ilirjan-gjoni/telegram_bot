@@ -16,7 +16,7 @@ const app = express();
 app.use(bodyParser.json());  // Parse the JSON sent from Telegram
 
 // Set up your bot's webhook (DO NOT add the token in the URL here)
-bot.setWebHook(`${webhookUrl}`);
+bot.setWebHook(`${webhookUrl}`/`${token}`);
 
 // Route for receiving updates from Telegram (here we use the token to identify the bot)
 app.post(`/webhook/${token}`, (req, res) => {
@@ -60,5 +60,3 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Express server is running on port ${port}`);
 });
-
-
