@@ -2,10 +2,10 @@ const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const bodyParser = require('body-parser');
 
-// Replace the value below with the Telegram token you received from @BotFather
+// Replace with your actual Telegram bot token
 const token = '7363467796:AAFbAkwgYeX4waoessi5FFPnCDJ-Ut5jFe8';
 
-// URL of your server that will be used for webhook (replace with your actual URL)
+// URL of your server that will be used for webhook (replace with your actual domain)
 const webhookUrl = 'https://telegram-bot-jh60.onrender.com/webhook';  // Replace with your actual domain
 
 // Create a bot instance without polling
@@ -15,10 +15,10 @@ const bot = new TelegramBot(token);
 const app = express();
 app.use(bodyParser.json());  // Parse the JSON sent from Telegram
 
-// Set up your bot's webhook
-bot.setWebHook(`${webhookUrl}/${token}`);
+// Set up your bot's webhook (DO NOT add the token in the URL here)
+bot.setWebHook(`${webhookUrl}`);
 
-// Route for receiving updates from Telegram
+// Route for receiving updates from Telegram (here we use the token to identify the bot)
 app.post(`/webhook/${token}`, (req, res) => {
     bot.processUpdate(req.body);  // Process the incoming update
     res.sendStatus(200);  // Respond to Telegram that we received the update
