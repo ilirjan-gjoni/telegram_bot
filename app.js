@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const token = '7363467796:AAFbAkwgYeX4waoessi5FFPnCDJ-Ut5jFe8';
 
 // URL of your server that will be used for webhook (replace with your actual URL)
-const webhookUrl = 'https://telegram-bot-jh60.onrender.com/';  // Replace with your actual domain
+const webhookUrl = 'https://telegram-bot-jh60.onrender.com/webhook';  // Replace with your actual domain
 
 // Create a bot instance without polling
 const bot = new TelegramBot(token);
